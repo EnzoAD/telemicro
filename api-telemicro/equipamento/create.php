@@ -11,46 +11,35 @@ if ($method === 'post') {
     $input = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se todos os dados necessários foram passados
-    if (isset($input['datar']) && isset($input['inicio']) && isset($input['fim']) && isset($input['localr']) && isset($input['assunto']) && isset($input['convite']) && isset($input['idcriador'])) {
-        $datar = $input['datar'];
-        $inicio = $input['inicio'];
-        $fim = $input['fim'];
-        $localr = $input['localr'];
-        $assunto = $input['assunto'];
-        $convite = $input['convite'];
-        $idcriador = $input['idcriador'];
+    if (isset($input['nome_cliente']) && isset($input['cpf']) && isset($input['nome_equipamento']) && isset($input['marca']) && isset($input['modelo']) && isset($input['defeito']) && isset($input['causa']) && isset($input['solucao'])) {
+        $nome_cliente = $input['nome_cliente'];
+        $cpf = $input['cpf'];
+        $nome_equipamento = $input['nome_equipamento'];
+        $marca = $input['marca'];
+        $modelo = $input['modelo'];
+        $defeito = $input['defeito'];
+        $causa = $input['causa'];
+        $solucao = $input['solucao'];
 
-        // Verifica se já está registrado
-        $check = $pdo->prepare("SELECT * FROM reunioes WHERE datar = :datar AND idcriador = :idcriador AND  NOT ( fim <= :inicio OR inicio >= :fim )");
-        $check->bindValue(':datar', $datar, PDO::PARAM_STR);
-        $check->bindValue(':idcriador', $idcriador, PDO::PARAM_INT);
-        $check->bindValue(':inicio', $inicio, PDO::PARAM_STR);
-        $check->bindValue(':fim', $fim, PDO::PARAM_STR);
-        $check->execute();
+        // Prepara e executa a query para inserir o novo equipamento
+        $sql = $pdo->prepare("INSERT INTO equipamento (nome_cliente, cpf, nome_equipamento, marca, modelo, defeito, causa, solucao) VALUES (:nome_cliente, :cpf, :nome_equipamento, :marca, :modelo, :defeito, :causa, :solucao)");
+        $sql->bindValue(':nome_cliente', $nome_cliente, PDO::PARAM_STR);
+        $sql->bindValue(':cpf', $cpf, PDO::PARAM_STR);
+        $sql->bindValue(':nome_equipamento', $nome_equipamento, PDO::PARAM_STR);
+        $sql->bindValue(':marca', $marca, PDO::PARAM_STR);
+        $sql->bindValue(':modelo', $modelo, PDO::PARAM_STR);
+        $sql->bindValue(':defeito', $defeito, PDO::PARAM_STR);
+        $sql->bindValue(':causa', $causa, PDO::PARAM_STR);
+        $sql->bindValue(':solucao', $solucao, PDO::PARAM_STR);
 
-        if ($check->rowCount() > 0) {
-            $array['error'] = 'Horário já está em uso.';
+        if ($sql->execute()) {
+            $idEquipamento = $pdo->lastInsertId(); // Obtém o ID gerado
+            $array['result'] = $idEquipamento;
         } else {
-            // Prepara e executa a query para inserir o novo usuário
-            $sql = $pdo->prepare("INSERT INTO reunioes (datar, inicio, fim, localr, assunto, convite, idcriador, situacao) VALUES (:datar, :inicio, :fim, :localr, :assunto, :convite, :idcriador, :situacao)");
-            $sql->bindValue(':datar', $datar, PDO::PARAM_STR);
-            $sql->bindValue(':inicio', $inicio, PDO::PARAM_STR);
-            $sql->bindValue(':fim', $fim, PDO::PARAM_STR);
-            $sql->bindValue(':localr', $localr, PDO::PARAM_STR);
-            $sql->bindValue(':assunto', $assunto, PDO::PARAM_STR);
-            $sql->bindValue(':convite', $convite, PDO::PARAM_STR);
-            $sql->bindValue(':idcriador', $idcriador, PDO::PARAM_INT);
-            $sql->bindValue(':situacao', "Em aberto", PDO::PARAM_STR);
-
-            if ($sql->execute()) {
-                $idReuniao = $pdo->lastInsertId(); // Obtém o ID gerado
-                $array['result'] = $idReuniao;
-            } else {
-                $array['error'] = 'Erro ao registrar a reuniao.';
-            }
+            $array['error'] = 'Erro ao registrar o equipamento.';
         }
     } else {
-        $array['error'] = 'Dados insuficientes para registrar a reuiniao.';
+        $array['error'] = 'Dados insuficientes para registrar o equipamento.';
     }
 } else {
     $array['error'] = 'Método não permitido. [Somente POST]';
