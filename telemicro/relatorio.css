@@ -1,0 +1,148 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden !important;
+}
+
+body,
+html{
+  max-width: 1800px !important;
+  min-width: 320px !important;
+  margin: 0 auto;
+}
+
+.bg{
+  padding: 20px;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  max-height: 1000px;
+  background-image: url('../bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: white;
+}
+
+.leftSide{
+  width: calc(100% / 2);
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.fieldBox{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.field{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.field h3{
+  font-weight: 900;
+  font-size: 23px;
+}
+.field p{
+  font-size: 19px;
+}
+
+.fieldBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.leftSide img{
+  width: 400px;
+  height: 250px;
+}
+
+.info{
+  text-align: center;
+}
+
+.logoutBtn{
+  background-color: #BD393D;
+  padding: 10px 30px;
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.rightSide{
+  width: calc(100% / 2);
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: rgba(0, 122, 200, 0.4);
+  border-radius: 50px;
+}
+
+.rightSide h3{
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rightSideTop{
+  width: 100%;
+}
+
+.rightSideInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.return{
+  background-color: #B8B9B8;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+@media screen and (max-width: 1200px){
+  .rightSide,
+  .leftSide{
+    width: 100%;
+  }
+
+  .rightSide{
+    border-radius: 5px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 590px){
+  .leftSide img{
+    width: 100%;
+    height: auto;
+  }
+  .info{
+    font-size: 15px;
+  }
+} 
