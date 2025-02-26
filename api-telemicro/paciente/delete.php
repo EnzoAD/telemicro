@@ -19,18 +19,18 @@ if ($method === 'delete') {
             // Inicia uma transação para garantir consistência
             $pdo->beginTransaction();
 
-            // Exclui o equipamento
-            $sql = $pdo->prepare("DELETE FROM equipamento WHERE id = :id");
+            // Exclui o paciente
+            $sql = $pdo->prepare("DELETE FROM paciente WHERE id = :id");
             $sql->bindValue(':id', $id, PDO::PARAM_INT);
 
             if ($sql->execute()) {
                 // Confirma a transação
                 $pdo->commit();
                 $array['success'] = true;
-                $array['message'] = 'Equipamento excluído com sucesso.';
+                $array['message'] = 'Paciente excluído com sucesso.';
             } else {
                 $pdo->rollBack(); // Desfaz a transação
-                $array['error'] = 'Erro ao excluir o equipamento.';
+                $array['error'] = 'Erro ao excluir o paciente.';
             }
         } catch (PDOException $e) {
             // Desfaz a transação em caso de erro
@@ -39,7 +39,7 @@ if ($method === 'delete') {
             $array['error'] = 'Erro interno no servidor.';
         }
     } else {
-        $array['error'] = 'ID do equipamento inválido ou não fornecido.';
+        $array['error'] = 'ID do paciente inválido ou não fornecido.';
     }
 } else {
     $array['error'] = 'Método não permitido. Apenas DELETE é aceito.';
