@@ -14,18 +14,18 @@ if ($method === 'post') {
     if (isset($input['descricao']) ) {
         $descricao = $input['descricao'];
 
-        // Prepara e executa a query para inserir o novo equipamento
-        $sql = $pdo->prepare("INSERT INTO equipamento (descricao) VALUES (:descricao)");
+        // Prepara e executa a query para inserir o novo defeito
+        $sql = $pdo->prepare("INSERT INTO defeito (descricao) VALUES (:descricao)");
         $sql->bindValue(':descricao', $nome_cliente, PDO::PARAM_STR);
 
         if ($sql->execute()) {
             $idEquipamento = $pdo->lastInsertId(); // Obtém o ID gerado
             $array['result'] = $idEquipamento;
         } else {
-            $array['error'] = 'Erro ao registrar o equipamento.';
+            $array['error'] = 'Erro ao registrar o defeito.';
         }
     } else {
-        $array['error'] = 'Dados insuficientes para registrar o equipamento.';
+        $array['error'] = 'Dados insuficientes para registrar o defeito.';
     }
 } else {
     $array['error'] = 'Método não permitido. [Somente POST]';
