@@ -96,13 +96,74 @@ html{
   max-height: 1000px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 30px 50px;
   background-color: rgba(0, 122, 200, 0.4);
   border-radius: 50px;
 }
 
+.rightSideHead{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 30px 0;
+}
+
+.rightSideHead h4{
+  font-size: 22px;
+}
+
+.rightSideHead h3{
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.fielSingle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.fielSingle h3{
+  padding-right: 10px;
+}
+
+.fielSingle input{
+  width: 90%;
+  padding: 5px 0;
+  border-radius: 50px;
+  border: 3px solid #5691CE;
+}
+
+.inputsBox{
+  width: 100%;
+}
+
+.buttonBox{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.buttonBox button{
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+}
+
+.btn1{
+  background-color: #5B5B5B;
+}
+.btn2{
+  background-color: #B8B9B8;
+}
 
 @media screen and (max-width: 1200px){
   .rightSide,
@@ -112,6 +173,7 @@ html{
 
   .rightSide{
     border-radius: 5px;
+    margin-top: 50px;
   }
 }
 
