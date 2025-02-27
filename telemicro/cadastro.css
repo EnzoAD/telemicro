@@ -133,8 +133,7 @@ html{
   padding-right: 10px;
 }
 
-.fielSingle input,
-.fielSingle select{
+.fielSingle input{
   width: 90%;
   padding: 5px 0;
   border-radius: 50px;
