@@ -2,8 +2,8 @@
 require('../config.php');
 
 $array = [];
+header('Content-Type: application/json');
 
-// Pega o método da requisição
 $method = strtolower($_SERVER['REQUEST_METHOD']);
 
 if ($method === 'post') {
@@ -11,23 +11,23 @@ if ($method === 'post') {
     $input = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os dados necessários foram passados
-    if (isset($input['descricao']) && isset($input['id_equipamento'])) {
+    if (isset($input['descricao']) && isset($input['id_causa'])) {
         $descricao = $input['descricao'];
-        $id_equipamento = $input['id_equipamento'];
+        $id_causa = intval($input['id_causa']);
 
-        // Prepara e executa a query para inserir o novo defeito
-        $sql = $pdo->prepare("INSERT INTO defeito (descricao, id_equipamento) VALUES (:descricao, :id_equipamento)");
+        // Prepara e executa a query para inserir a nova solução
+        $sql = $pdo->prepare("INSERT INTO solucao (descricao, id_causa) VALUES (:descricao, :id_causa)");
         $sql->bindValue(':descricao', $descricao, PDO::PARAM_STR);
-        $sql->bindValue(':id_equipamento', $id_equipamento, PDO::PARAM_INT);
+        $sql->bindValue(':id_causa', $id_causa, PDO::PARAM_INT);
 
         if ($sql->execute()) {
-            $idDefeito = $pdo->lastInsertId(); // Obtém o ID gerado
-            $array['result'] = $idDefeito;
+            $idSolucao = $pdo->lastInsertId(); // Obtém o ID gerado
+            $array['result'] = $idSolucao;
         } else {
-            $array['error'] = 'Erro ao registrar o defeito.';
+            $array['error'] = 'Erro ao registrar a solução.';
         }
     } else {
-        $array['error'] = 'Dados insuficientes para registrar o defeito.';
+        $array['error'] = 'Dados insuficientes para registrar a solução.';
     }
 } else {
     $array['error'] = 'Método não permitido. [Somente POST]';

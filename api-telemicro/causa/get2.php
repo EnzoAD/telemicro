@@ -7,20 +7,20 @@ header('Content-Type: application/json');
 $method = strtolower($_SERVER['REQUEST_METHOD']);
 
 if ($method === 'get') {
-    if (isset($_GET['id_equipamento'])) {
-        $id_equipamento = intval($_GET['id_equipamento']);
+    if (isset($_GET['id_defeito'])) {
+        $id_defeito = intval($_GET['id_defeito']);
 
-        $sql = $pdo->prepare("SELECT id, descricao FROM defeito WHERE id_equipamento = :id_equipamento");
-        $sql->bindValue(':id_equipamento', $id_equipamento, PDO::PARAM_INT);
+        $sql = $pdo->prepare("SELECT id, descricao FROM causa WHERE id_defeito = :id_defeito");
+        $sql->bindValue(':id_defeito', $id_defeito, PDO::PARAM_INT);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
             $array['result'] = $sql->fetchAll(PDO::FETCH_ASSOC);
         } else {
-            $array['error'] = 'Nenhum defeito encontrado para este equipamento.';
+            $array['error'] = 'Nenhuma causa encontrada para este defeito.';
         }
     } else {
-        $array['error'] = 'Nenhum ID de equipamento foi fornecido.';
+        $array['error'] = 'Nenhum ID de defeito foi fornecido.';
     }
 } else {
     $array['error'] = 'Método não permitido. [Somente GET]';

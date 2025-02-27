@@ -10,14 +10,14 @@ if ($method === 'get') {
     if (isset($_GET['id'])) {
         $id = intval($_GET['id']);
 
-        $sql = $pdo->prepare("SELECT id, descricao, id_equipamento FROM defeito WHERE id = :id");
+        $sql = $pdo->prepare("SELECT id, descricao, id_causa FROM solucao WHERE id = :id");
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
             $array['result'] = $sql->fetch(PDO::FETCH_ASSOC);
         } else {
-            $array['error'] = 'Defeito não encontrado.';
+            $array['error'] = 'Solução não encontrada.';
         }
     } else {
         $array['error'] = 'Nenhum ID foi fornecido.';
