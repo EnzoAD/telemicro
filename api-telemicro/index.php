@@ -1,3 +1,3 @@
 <?php
-    echo "TCC Enzo Alves Dupin - Reunion &copy; Todos os direitos reservados.";
+    echo " Enzo Alves Dupin - Triagem &copy; Todos os direitos reservados.";
     exit;

@@ -10,14 +10,14 @@ if ($method === 'post') { // Apenas requisições POST
     // Obtém os dados do corpo da requisição
     $input = json_decode(file_get_contents("php://input"), true);
 
-    // Verifica se o email e a senha foram enviados
-    if (isset($input['email']) && isset($input['password'])) {
-        $email = $input['email'];
+    // Verifica se o nome e a senha foram enviados
+    if (isset($input['name']) && isset($input['password'])) {
+        $name = $input['name'];
         $password = $input['password'];
 
-        // Consulta para verificar o email na base de dados
-        $sql = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-        $sql->bindValue(':email', $email, PDO::PARAM_STR);
+        // Consulta para verificar o nome na base de dados
+        $sql = $pdo->prepare("SELECT * FROM users WHERE 'name' = ':name'");
+        $sql->bindValue(':name', $name, PDO::PARAM_STR);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
@@ -51,7 +51,7 @@ if ($method === 'post') { // Apenas requisições POST
             $array['error'] = 'Usuário não encontrado.';
         }
     } else {
-        $array['error'] = 'Email e senha são obrigatórios.';
+        $array['error'] = 'Nome e senha são obrigatórios.';
     }
 } else {
     $array['error'] = 'Método não permitido. [Somente POST]';

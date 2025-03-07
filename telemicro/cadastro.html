@@ -10,11 +10,6 @@
 <body  class="bg">
   <div class="leftSide">
     <div class="fieldBox">
-      <div class="field">
-        <h3>Usuário:</h3>
-        <p>Enzo Dupin</p>
-      </div>
-      <button class="logoutBtn">Sair</button>
     </div>
     
     <div class="info">
@@ -42,21 +37,28 @@
     <div class="inputsBox">
       <div class="fielSingle">
         <h3>Nome</h3>
-        <input type="text">
+        <input ype="text" id="name" name="name" class="nameInput">
       </div>
       <div class="fielSingle">
         <h3>Email</h3>
-        <input type="text">
+        <input type="email" id="email" name="email" class="emailInput">
       </div>
       <div class="fielSingle">
         <h3>Senha:</h3>
-        <input type="text">
+        <input type="password" id="password" name="password" class="passInput">
       </div>
       <div class="fielSingle">
         <h3>Confirmar Senha:</h3>
-        <input type="text">
+        <input type="password" id="confirm-password" name="confirm-password" class="confirmPassInput">
       </div>
+      <center>
+      <a href="#" class="createButton"><button type="submit" class="loginBtn">Salvar</button></a>
+    
+      <a href="login"><button class="logoutBtn">Cancelar</button></a></center>
+      
     </div>
+    
   </div>
+  <script src="./js/cadastro.js"></script>
 </body>
 </html>

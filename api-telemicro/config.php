@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "reunion";
+$dbname = "telemicro";
 
 try{
     $pdo = new PDO("mysql:dbname=".$dbname.";host=".$servername, $username, $password);

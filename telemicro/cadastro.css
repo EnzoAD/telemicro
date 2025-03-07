@@ -157,7 +157,14 @@ html{
   border-radius: 10px;
   color: white;
 }
-
+.loginBtn{
+  background-color: #5691CE;
+  padding: 10px 30px;
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
 .btn1{
   background-color: #5B5B5B;
 }

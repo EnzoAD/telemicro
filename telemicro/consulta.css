@@ -147,13 +147,13 @@ html{
 }
 
 .relatorioSingle a{
-  color: #1100FF;
+  color: #00d9ff;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
 }
 .relatorioSingle a:hover{
-  border-bottom: 1px solid #1100FF;
+  border-bottom: 1px solid #00d9ff;
 }
 
 .return{

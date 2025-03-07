@@ -14,7 +14,7 @@
         <h3>Usuário:</h3>
         <p>Enzo Dupin</p>
       </div>
-      <button class="logoutBtn">Sair</button>
+      <a href="#" class="logoutButton"><button class="logoutBtn">Sair</button></a>
     </div>
     
     <div class="info">
@@ -41,51 +41,43 @@
     </div>
     <div class="inputsBox">
       <div class="fielSingle">
-        <h3>Cliente</h3>
-        <input type="text">
+        <h3>Cliente*:</h3>
+        <input type="text" class="cliente">
       </div>
       <div class="fielSingle">
-        <h3>Cpf</h3>
-        <input type="text">
+        <h3>Cpf*:</h3>
+        <input type="text" class="cpf">
       </div>
       <div class="fielSingle">
-        <h3>Equipamento:</h3>
-        <select name="" id="">
-          <option value="">Teste1</option>
-          <option value="">Teste2</option>
-          <option value="">Teste3</option>
+        <h3>Equipamento*:</h3>
+        <select name="" id="equipamento" class="equipamento">
+          <option value="-1"></option>
         </select>
       </div>
       <div class="fielSingle">
-        <h3>Marca:</h3>
-        <input type="text">
+        <h3>Marca*:</h3>
+        <input type="text" class="marca">
       </div>
       <div class="fielSingle">
-        <h3>Modelo:</h3>
-        <input type="text">
+        <h3>Modelo*:</h3>
+        <input type="text" class="modelo">
       </div>
       <div class="fielSingle">
-        <h3>Defeito:</h3>
+        <h3>Defeito*:</h3>
         <select name="" id="">
-          <option value="">Teste1</option>
-          <option value="">Teste2</option>
-          <option value="">Teste3</option>
+          <option value="-1" class="defeito"></option>
         </select>
       </div>
       <div class="fielSingle">
         <h3>Possivel Causa:</h3>
-        <select name="" id="">
-          <option value="">Teste1</option>
-          <option value="">Teste2</option>
-          <option value="">Teste3</option>
+        <select name="" id="causa" class="causa">
+          <option value="-1"></option>
         </select>
       </div>
       <div class="fielSingle">
         <h3>Solução:</h3>
-        <select name="" id="">
-          <option value="">Teste1</option>
-          <option value="">Teste2</option>
-          <option value="">Teste3</option>
+        <select name="" id="solucao" class="solucao">
+          <option value="-1"></option>
         </select>
       </div>
       <div class="buttonBox">
@@ -94,5 +86,6 @@
       </div>
     </div>
   </div>
+  
 </body>
 </html>

@@ -1,13 +1,12 @@
-CREATE DATABASE IF NOT EXISTS sistema_manutencao;
-USE sistema_manutencao;
+CREATE DATABASE IF NOT EXISTS telemicro;
+USE telemicro;
 
 -- Tabela de Usuários
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    situacao VARCHAR(100) NOT NULL
+    password VARCHAR(255) NOT NULL
 );
 
 INSERT INTO users (id, name, email, password, situacao) VALUES
@@ -18,16 +17,16 @@ INSERT INTO users (id, name, email, password, situacao) VALUES
 (7, 'José', 'jose@gmail.com', '$2y$10$cPdx47hvkr322KZWcAKHvucpY9FZJdIpnQlhCdgrD//ulf4I1omea', 'ativo');
 
 -- Tabela de Pacientes
-CREATE TABLE paciente (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_cliente VARCHAR(100) NOT NULL,
-    cpf VARCHAR(100) NOT NULL,
-    id_equipamento VARCHAR(100) NOT NULL,
-    marca VARCHAR(100) NOT NULL,
+CREATE TABLE paciente ( 
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nome_cliente VARCHAR(100) NOT NULL, 
+    cpf VARCHAR(100) NOT NULL, 
+    id_equipamento VARCHAR(100) NOT NULL, 
+    marca VARCHAR(100) NOT NULL, 
     modelo VARCHAR(100) NOT NULL,
-    id_equipamento VARCHAR(100) NOT NULL,
-    telefone VARCHAR(20),
-    endereco VARCHAR(255)
+    id_defeito VARCHAR(100) NOT NULL, 
+    id_causa VARCHAR(100) NOT NULL, 
+    id_solucao VARCHAR(100) NOT NULL 
 );
 
 -- Inserção de alguns pacientes como exemplo
@@ -38,11 +37,7 @@ INSERT INTO paciente (id, nome, data_nascimento, genero, telefone, endereco) VAL
 -- Tabela de Equipamentos
 CREATE TABLE equipamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    modelo VARCHAR(100) NOT NULL,
-    numero_serie VARCHAR(100) UNIQUE NOT NULL,
-    localizacao VARCHAR(255),
-    data_aquisicao DATE
+    nome VARCHAR(100) NOT NULL
 );
 
 -- Inserção de alguns equipamentos como exemplo
@@ -54,10 +49,7 @@ INSERT INTO equipamento (id, nome, modelo, numero_serie, localizacao, data_aquis
 CREATE TABLE defeito (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(1000) NOT NULL,
-    id_equipamento INT NOT NULL,
-    data_ocorrencia DATE NOT NULL,
-    status ENUM('Aberto', 'Em andamento', 'Resolvido') DEFAULT 'Aberto',
-    FOREIGN KEY (id_equipamento) REFERENCES equipamento(id) ON DELETE CASCADE
+    id_equipamento INT NOT NULL
 );
 
 -- Inserção de defeitos como exemplo
@@ -69,8 +61,7 @@ INSERT INTO defeito (id, descricao, id_equipamento, data_ocorrencia, status) VAL
 CREATE TABLE causa (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(1000) NOT NULL,
-    id_defeito INT NOT NULL,
-    FOREIGN KEY (id_defeito) REFERENCES defeito(id) ON DELETE CASCADE
+    id_defeito INT NOT NULL
 );
 
 -- Inserção de causas como exemplo
@@ -82,10 +73,7 @@ INSERT INTO causa (id, descricao, id_defeito) VALUES
 CREATE TABLE solucao (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(1000) NOT NULL,
-    id_causa INT NOT NULL,
-    data_resolucao DATE DEFAULT NULL,
-    responsavel VARCHAR(100),
-    FOREIGN KEY (id_causa) REFERENCES causa(id) ON DELETE CASCADE
+    id_causa INT NOT NULL
 );
 
 -- Inserção de soluções como exemplo
