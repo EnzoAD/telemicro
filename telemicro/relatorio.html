@@ -12,7 +12,7 @@
     <div class="fieldBox">
       <div class="field">
         <h3>Usuário:</h3>
-        <p>Enzo Dupin</p>
+        <p class="user">Enzo Dupin</p>
       </div>
       <button class="logoutBtn">Sair</button>
     </div>
@@ -35,15 +35,19 @@
   </div>
   <div class="rightSide">
     <div class="rightSideTop">
-      <h3>Relatóriole</h3>
+      <h3>Relatório</h3>
       <div class="rightSideInfo">
-        <p>Atendido por Nome_Usuario</p>
-        <p>Atendido por Nome_Usuario</p>
-        <p>Atendido por Nome_Usuario</p>
-        <p>Atendido por Nome_Usuario</p>
+        <p class="result">Dados não encontrados</p>
+        <div class="buttonBox">
+          <a href="consulta"><button class="return">Voltar</button></a> <button id="whatsappBtn" class="whatsappBtn"><img src="../whatsapp.png" alt="Compartilhar no WhatsApp" style="width: 30px; height: 30px;"></button>
+        </div>
       </div>
     </div>
-    <button class="return">Voltar</button>
+    
   </div>
+  <script src="./js/relatorio.js"></script>
+  <script src="./js/helpers.js"></script>
+  <script src="./js/generalPermitionValidate.js"></script>
+  
 </body>
 </html>

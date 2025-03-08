@@ -12,9 +12,9 @@
     <div class="fieldBox">
       <div class="field">
         <h3>Usuário:</h3>
-        <p>Enzo Dupin</p>
+        <p class="user">Enzo Dupin</p>
       </div>
-      <a href="#" class="logoutButton"><button class="logoutBtn">Sair</button></a>
+      <a href="" class="logoutButton"><button class="logoutBtn">Sair</button></a>
     </div>
     
     <div class="info">
@@ -35,7 +35,7 @@
   </div>
   <div class="rightSide">
     <div class="rightSideHead">
-      <h3>01</h3>
+      <h3 class="id" ></h3>
       <h4>Triagem de Equipamentos</h4>
       <div></div>
     </div>
@@ -50,9 +50,10 @@
       </div>
       <div class="fielSingle">
         <h3>Equipamento*:</h3>
-        <select name="" id="equipamento" class="equipamento">
+        <a href="#" class="equi"><select name="" id="equipamento" class="equipamento">
           <option value="-1"></option>
-        </select>
+        </select></a>
+        <button onclick="cadastrarEquipamento()" class="loginBtn">+</button>
       </div>
       <div class="fielSingle">
         <h3>Marca*:</h3>
@@ -64,28 +65,38 @@
       </div>
       <div class="fielSingle">
         <h3>Defeito*:</h3>
-        <select name="" id="">
-          <option value="-1" class="defeito"></option>
-        </select>
+        <a href="#" class="def"><select class="defeito" name="" id="">
+          <option value="-1" ></option>
+        </select></a>
+        <button onclick="cadastrarDefeito()" class="loginBtn">+</button>
       </div>
       <div class="fielSingle">
         <h3>Possivel Causa:</h3>
-        <select name="" id="causa" class="causa">
+        <a href="#" class="cau"><select name="" id="causa" class="causa">
           <option value="-1"></option>
-        </select>
+        </select></a>
+        <button onclick="cadastrarCausa()" class="loginBtn">+</button>
       </div>
       <div class="fielSingle">
         <h3>Solução:</h3>
-        <select name="" id="solucao" class="solucao">
+        <a href="#" class="sol"><select name="" id="solucao" class="solucao">
           <option value="-1"></option>
-        </select>
+        </select></a>
+        <button onclick="cadastrarSolucao()" class="loginBtn">+</button>
       </div>
       <div class="buttonBox">
-        <button class="btn1">Consultar</button>
-        <button class="btn2">Enviar</button>
+        <a href="consulta"><button class="btn1">Consultar</button></a>
+        <a href="#" class="accept"><button class="btn2">Enviar</button></a>
       </div>
     </div>
   </div>
   
+  <script src="./js/home.js"></script>
+  <script src="./js/getId.js"></script>
+  <script src="./js/getSelect.js"></script>
+  <script src="./js/helpers.js"></script>
+  <script src="./js/generalPermitionValidate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

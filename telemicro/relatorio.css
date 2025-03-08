@@ -12,6 +12,13 @@ html{
   margin: 0 auto;
 }
 
+.buttonBox{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .bg{
   padding: 20px;
   width: 100vw;
@@ -123,6 +130,8 @@ html{
   margin-top: 40px;
   font-weight: bold;
   font-size: 17px;
+  cursor: pointer;
+  color: white;
 }
 
 @media screen and (max-width: 1200px){
@@ -146,3 +155,13 @@ html{
     font-size: 15px;
   }
 } 
+.whatsappBtn{
+  background-color: #B8B9B8;
+  border: 0;
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+}

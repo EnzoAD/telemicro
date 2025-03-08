@@ -17,7 +17,13 @@ if ($method === 'get') { // Apenas requisições GET
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
-            $array['result'] = $sql->fetch(PDO::FETCH_ASSOC); // Retorna o usuário encontrado
+            $data = $sql->fetch(PDO::FETCH_ASSOC); // Retorna o usuário encontrado
+            foreach($data as $item) {
+                $array['result'][] = [
+                    'id' => $item['id'],
+                    'name' => $item['name'],
+                    'email' => $item['email']
+                ];
         } else {
             $array['error'] = 'Usuário não encontrado.';
         }
@@ -28,4 +34,5 @@ if ($method === 'get') { // Apenas requisições GET
     $array['error'] = 'Método não permitido. [Somente GET]';
 }
 
-require('../return.php');
+echo json_encode($array, JSON_UNESCAPED_UNICODE);
+exit;

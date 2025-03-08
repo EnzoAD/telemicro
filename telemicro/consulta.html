@@ -12,9 +12,9 @@
     <div class="fieldBox">
       <div class="field">
         <h3>Usuário:</h3>
-        <p>Enzo Dupin</p>
+        <p class="user">Enzo Dupin</p>
       </div>
-      <button class="logoutBtn">Sair</button>
+      <a href="" class="logoutButton"><button class="logoutBtn">Sair</button></a>
     </div>
     
     <div class="info">
@@ -36,20 +36,18 @@
   <div class="rightSide">
     <h3>Consulta</h3>
     <div class="searchBox">
-      <input type="text">
-      <button>Pesquisar</button>
+      <input type="text" class="valor">
+      <a href="#" class="busca"><button>Pesquisar</button></a>
     </div>
     <div class="relatorioBox">
       <div class="relatorioSingle">
-        <p>id, Nome_Cliente, Equipamento, Data, Hora</p>
-        <a>Relatório</a>
-      </div>
-      <div class="relatorioSingle">
-        <p>id, Nome_Cliente, Equipamento, Data, Hora</p>
-        <a>Relatório</a>
+        <p class="result">id, Nome_Cliente, Equipamento, Data, Hora - Relatório</p>
       </div>
     </div>
-    <button class="return">Voltar</button>
+    <a href="home"><button class="return">Voltar</button></a>
   </div>
+  <script src="./js/consulta.js"></script>
+  <script src="./js/helpers.js"></script>
+  <script src="./js/generalPermitionValidate.js"></script>
 </body>
 </html>

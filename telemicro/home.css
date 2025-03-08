@@ -11,7 +11,6 @@ html{
   min-width: 320px !important;
   margin: 0 auto;
 }
-
 .bg{
   padding: 20px;
   width: 100vw;
@@ -131,7 +130,7 @@ html{
 
 .fielSingle{
   width: 100%;
-  display: flex;
+  display:flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -141,13 +140,24 @@ html{
   padding-right: 10px;
 }
 
+.fielSingle a{
+ width: 80%;
+}
+.fielSingle .causa,
+.fielSingle .solucao,
+.fielSingle .equipamento,
+.fielSingle .defeito{
+  width: 100%;
+}
 .fielSingle input,
 .fielSingle select{
-  width: 85%;
+  width: 80%;
   padding: 5px 0;
   border-radius: 50px;
   border: 3px solid #5691CE;
 }
+
+
 
 .inputsBox{
   width: 100%;
@@ -169,9 +179,11 @@ html{
 
 .btn1{
   background-color: #5B5B5B;
+  cursor: pointer;
 }
 .btn2{
   background-color: #B8B9B8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px){

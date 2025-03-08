@@ -7,17 +7,18 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
 
     let cliente = document.querySelector('.cliente').value;
     let cpf = document.querySelector('.cpf').value;
-    const id_equipamento = document.getElementById('equipamento');
+    const id_equipamento = document.querySelector('.equipamento').value;
     let marca = document.querySelector('.marca').value;
     let modelo = document.querySelector('.modelo').value;
-    const id_defeito = document.getElementById('defeito');
-    const id_causa = document.getElementById('causa');
-    const id_solucao = document.getElementById('solucao');
+    const id_defeito = document.querySelector('.defeito').value;
+    const id_causa = document.querySelector('.causa').value;
+    const id_solucao = document.querySelector('.solucao').value;
     let idcriador = userData.id;
+    
 
 
 
-    if(!cliente || !cpf || !fim || !id_equipamento || !marca || !modelo || !defeito || !idcriador){
+    if(!cliente || !cpf || !id_equipamento || !marca || !modelo || !id_defeito || !idcriador){
       alert('Por favor, não envie campos com priodade em vazio.');
       return;
     }
@@ -31,15 +32,15 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
     let segundos = String(now.getSeconds()).padStart(2, '0');
 
     let dataEntrada = `${ano}-${mes}-${dia} ${hora}:${minutos}:${segundos}`;
-  
+
     try {
-      let res = await fetch('http://'+ window.location.hostname + 'telemicro/api-telemicro/paciente/create.php', {
+      let res = await fetch('http://'+ window.location.hostname + '/telemicro/api-telemicro/paciente/create.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            cliente: cliente,
+            nome_cliente: cliente,
             cpf: cpf,
             id_equipamento: id_equipamento,
             marca: marca,
@@ -55,6 +56,7 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
       if (!res.ok) {
         throw new Error('Erro ao criar novo paciente');
       }
+     
 
       const data = await res.json();
       // Trate a resposta aqui
@@ -62,9 +64,10 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
 
       if (data.result) {
         console.log('Create successful:', data);
+        await alert('Triagem enviada com sucesso!');
 
         
-        window.location.href = 'http://'+ window.location.hostname + 'telemicro/telemicro/home';
+        window.location.href = 'http://'+ window.location.hostname + '/telemicro/telemicro/home';
   
       } else {
         console.log(data);
