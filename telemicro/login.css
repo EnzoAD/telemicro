@@ -94,7 +94,9 @@ html{
   background-color: rgba(0, 122, 200, 0.4);
   border-radius: 50px;
 }
-
+.info p{
+  font-size: 21px;
+}
 
 @media screen and (max-width: 1200px){
   .rightSide,

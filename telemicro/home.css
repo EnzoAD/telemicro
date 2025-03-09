@@ -169,7 +169,9 @@ html{
   justify-content: center;
   gap: 20px;
 }
-
+.info p{
+  font-size: 21px;
+}
 .buttonBox button{
   padding: 10px 20px;
   border: 0;

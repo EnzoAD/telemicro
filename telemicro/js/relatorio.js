@@ -105,5 +105,10 @@ document.addEventListener('DOMContentLoaded', async (e) => {
 document.getElementById('whatsappBtn').addEventListener('click', function() {
     const texto = encodeURIComponent( document.querySelector(".result").innerText );
     const url = `https://api.whatsapp.com/send?text=${texto}`;
-    window.open(url, '_blank');
+
+    if (navigator.userAgent.match(/web.whatsapp.com/)) {
+        window.open(url, '_blank'); // Abre no WhatsApp Web
+      } else {
+        window.open(url, '_blank'); // Abre no WhatsApp App ou WhatsApp Web
+      }
   });

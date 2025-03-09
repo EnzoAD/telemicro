@@ -65,7 +65,9 @@ html{
 .field p{
   font-size: 19px;
 }
-
+.info p{
+  font-size: 21px;
+}
 .fieldBox{
   display: flex;
   justify-content: center;

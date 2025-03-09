@@ -171,7 +171,9 @@ html{
 .btn2{
   background-color: #B8B9B8;
 }
-
+.info p{
+  font-size: 21px;
+}
 @media screen and (max-width: 1200px){
   .rightSide,
   .leftSide{
