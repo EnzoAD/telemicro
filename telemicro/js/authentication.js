@@ -10,7 +10,7 @@ document.querySelector('.loginButton').addEventListener('click', async (e) => {
   }
 
   try {
-    let res = await fetch('http://localhost/telemicro/api-telemicro/user/auth.php', {
+    let res = await fetch('http://'+ window.location.hostname + '/telemicro/api-telemicro/user/auth.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ document.querySelector('.loginButton').addEventListener('click', async (e) => {
       getUserData(data.result.user);
 
       // Redirecione o usuário ou salve o token
-      window.location.href = 'http://localhost/telemicro/telemicro/home';
+      window.location.href = 'http://'+ window.location.hostname + '/telemicro/telemicro/home';
     } else {
       console.error('Login failed:', data.message);
     }
