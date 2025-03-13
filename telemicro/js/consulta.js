@@ -32,7 +32,7 @@ document.querySelector('.busca').addEventListener('click', async (e) => {
             for (const itemr of datar.result) {
                 
 
-                document.querySelector(".result").innerHTML += itemr.id + ", " + itemr.nome_cliente + ", " + itemr.nome_equipamento + ", " + converterData(itemr.data_entrada) + ` - <a href="relatorio?id=${itemr.id}">Relatório</a>` + "<br><br>";
+                document.querySelector(".result").innerHTML += itemr.id + ", " + itemr.nome_cliente + ", " + itemr.nome_equipamento + ", " + converterData(itemr.data_entrada) + ` - <a href="relatorio?id=${itemr.id}">Relatório</a>` + ` - <a href="editar?id=${itemr.id}">Editar</a>` + ` - <a href="excluir?id=${itemr.id}">Excluir</a>` + "<br><br>";
                 
 
                 
