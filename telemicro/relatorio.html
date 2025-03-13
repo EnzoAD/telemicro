@@ -6,6 +6,12 @@
   <title>Document</title>
   <link rel="stylesheet" href="./globals.css">
   <link rel="stylesheet" href="./relatorio.css">
+  <style>
+    #dados {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+</style>
 </head>
 <body  class="bg">
   <div class="leftSide">
@@ -34,20 +40,40 @@
     <div></div>
   </div>
   <div class="rightSide">
-    <div class="rightSideTop">
-      <h3>Relatório</h3>
-      <div class="rightSideInfo">
-        <p class="result">Dados não encontrados</p>
-        <div class="buttonBox">
-          <a href="consulta"><button class="return">Voltar</button></a> <button id="whatsappBtn" class="whatsappBtn"><img src="../whatsapp.png" alt="Compartilhar no WhatsApp" style="width: 30px; height: 30px;"></button>
+    <div class="rightSideTop" >
+      <div id="dados">
+        <h3>Relatório</h3>
+        <div class="rightSideInfo">
+          <p class="result" >Dados não encontrados</p>
         </div>
       </div>
+      <div class="buttonBox">
+        <a href="consulta"><button class="return">Voltar</button></a> <button class="return" onclick="imprimirDados()">Imprimir</button>
+      </div>
     </div>
+    
     
   </div>
   <script src="./js/relatorio.js"></script>
   <script src="./js/helpers.js"></script>
   <script src="./js/generalPermitionValidate.js"></script>
+  <script>
+    function imprimirDados() {
+        var conteudo = document.getElementById('dados').innerHTML;
+        
+        // Abre uma nova janela
+        var janelaImpressao = window.open('', '', 'width=800,height=600');
+
+        // Escreve o conteúdo desejado na nova janela
+        janelaImpressao.document.write('<html><head><title>Impressão</title></head><body>');
+        janelaImpressao.document.write(conteudo);
+        janelaImpressao.document.write('</body></html>');
+
+        // Finaliza o documento e imprime
+        janelaImpressao.document.close();
+        janelaImpressao.print();
+    }
+</script>
   
 </body>
 </html>
