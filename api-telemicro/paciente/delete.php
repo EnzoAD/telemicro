@@ -46,5 +46,5 @@ if ($method === 'delete') {
 }
 
 // Retorna a resposta em JSON
-echo json_encode($array);
+echo json_encode($array, JSON_UNESCAPED_UNICODE);
 exit;

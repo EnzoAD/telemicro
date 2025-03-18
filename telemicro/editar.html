@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./globals.css">
+  <link rel="stylesheet" href="./home.css">
+</head>
+<body  class="bg">
+  <div class="leftSide">
+    <div class="fieldBox">
+      <div class="field">
+        <h3>Usuário:</h3>
+        <p class="user">Enzo Dupin</p>
+      </div>
+      <a href="" class="logoutButton"><button class="logoutBtn">Sair</button></a>
+    </div>
+    
+    <div class="info">
+      <img src="../telemicro.png" alt="">
+      <p>
+        <br/>(33) 3412-2826 | (33) 3412-2595
+        <br/>www.telemicroinformatica.com
+      </p>
+      <p>
+        <br/><img src="../facebook.png" alt="Compartilhar no WhatsApp" style="width: 21px; height: 21px;">/telemicroinformatica
+        <br/><img src="../instagram.png" alt="Compartilhar no WhatsApp" style="width: 25px; height: 25px;">/telemicroinfo
+
+        <br/>Rua Benedito Valadares, 78, Centro, 
+        <br/>São João Evangelista - MG
+      </p>
+    </div>
+    <div></div>
+  </div>
+  <div class="rightSide">
+    <div class="rightSideHead">
+      <h3 class="id" ></h3>
+      <h4>Edição de Triagem</h4>
+      <div></div>
+    </div>
+    <div class="inputsBox">
+      <div class="fielSingle">
+        <h3>Cliente*:</h3>
+        <input type="text" class="cliente">
+      </div>
+      <div class="fielSingle">
+        <h3>Cpf*:</h3>
+        <input type="text" class="cpf">
+      </div>
+      <div class="fielSingle">
+        <h3>Equipamento*:</h3>
+        <a href="#" class="equi"><select name="" id="equipamento" class="equipamento">
+          <option value="-1"></option>
+        </select></a>
+        <button onclick="cadastrarEquipamento()" class="loginBtn">+</button>
+      </div>
+      <div class="fielSingle">
+        <h3>Marca*:</h3>
+        <input type="text" class="marca">
+      </div>
+      <div class="fielSingle">
+        <h3>Modelo*:</h3>
+        <input type="text" class="modelo">
+      </div>
+      <div class="fielSingle">
+        <h3>Defeito*:</h3>
+        <a href="#" class="def"><select class="defeito" name="" id="">
+          <option value="-1" ></option>
+        </select></a>
+        <button onclick="cadastrarDefeito()" class="loginBtn">+</button>
+      </div>
+      <div class="fielSingle">
+        <h3>Possivel Causa:</h3>
+        <a href="#" class="cau"><select name="" id="causa" class="causa">
+          <option value="-1"></option>
+        </select></a>
+        <button onclick="cadastrarCausa()" class="loginBtn">+</button>
+      </div>
+      <div class="fielSingle">
+        <h3>Solução:</h3>
+        <a href="#" class="sol"><select name="" id="solucao" class="solucao">
+          <option value="-1"></option>
+        </select></a>
+        <button onclick="cadastrarSolucao()" class="loginBtn">+</button>
+      </div>
+      <div class="buttonBox">
+        <a href="consulta"><button class="btn1">Voltar</button></a>
+        <a href="#"  onclick=editSalvar() ><button class="btn2">Salvar</button></a>
+      </div>
+    </div>
+  </div>
+  
+  <script src="./js/home.js"></script>
+  <script src="./js/getId.js"></script>
+  <script src="./js/getSelect.js"></script>
+  <script src="./js/helpers.js"></script>
+  <script src="./js/setEdit.js"></script>
+  <script src="./js/generalPermitionValidate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

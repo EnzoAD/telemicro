@@ -12,6 +12,21 @@ function converterData(dataHora) {
     return `${dia}/${mes}/${ano} , ${hora}`;
 }
 
+async function excluir(id) {
+    if(confirm("Tem certeza que deseja excluir?")){
+        let res = await fetch('http://'+ window.location.hostname + `/telemicro/api-telemicro/paciente/delete.php`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: id
+            })
+            
+        });
+        alert("Item excluido com sucesso!");
+        location.reload();
+    }
+}
+
 document.querySelector('.busca').addEventListener('click', async (e) => {
     e.preventDefault();
 
@@ -32,7 +47,7 @@ document.querySelector('.busca').addEventListener('click', async (e) => {
             for (const itemr of datar.result) {
                 
 
-                document.querySelector(".result").innerHTML += itemr.id + ", " + itemr.nome_cliente + ", " + itemr.nome_equipamento + ", " + converterData(itemr.data_entrada) + ` - <a href="relatorio?id=${itemr.id}">Relatório</a>` + ` - <a href="editar?id=${itemr.id}">Editar</a>` + ` - <a href="excluir?id=${itemr.id}">Excluir</a>` + "<br><br>";
+                document.querySelector(".result").innerHTML += itemr.id + ", " + itemr.nome_cliente + ", " + itemr.nome_equipamento + ", " + converterData(itemr.data_entrada) + ` - <a href="relatorio?id=${itemr.id}">Relatório</a>` + ` - <a href="editar?id=${itemr.id}">Editar</a>` + ` - <a href="#" onclick="excluir(${itemr.id})">Excluir</a>` + "<br><br>";
                 
 
                 
