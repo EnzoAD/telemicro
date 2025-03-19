@@ -11,10 +11,10 @@ if ($method === 'put') {
     $input = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se todos os dados necessários foram passados
-    if (isset($input['id']) && isset($input['nome_cliente']) && isset($input['cpf']) && isset($input['id_equipamento']) && isset($input['marca']) && isset($input['modelo']) && isset($input['id_defeito']) && isset($input['idcriador'])) {
+    if (isset($input['id']) && isset($input['nome_cliente']) && isset($input['os']) && isset($input['id_equipamento']) && isset($input['marca']) && isset($input['modelo']) && isset($input['id_defeito']) && isset($input['idcriador'])) {
         $id = $input['id'];
         $nome_cliente = $input['nome_cliente'];
-        $cpf = $input['cpf'];
+        $os = $input['os'];
         $id_equipamento = $input['id_equipamento'];
         $marca = $input['marca'];
         $modelo = $input['modelo'];
@@ -24,10 +24,10 @@ if ($method === 'put') {
         $idcriador = $input['idcriador'];
 
         // Prepara e executa a query para atualizar o paciente
-        $sql = $pdo->prepare("UPDATE paciente SET nome_cliente = :nome_cliente, cpf = :cpf, id_equipamento = :id_equipamento, marca = :marca, modelo = :modelo, id_defeito = :id_defeito, id_causa = :id_causa, id_solucao = :id_solucao, idcriador = :idcriador WHERE id = :id");
+        $sql = $pdo->prepare("UPDATE paciente SET nome_cliente = :nome_cliente, os = :os, id_equipamento = :id_equipamento, marca = :marca, modelo = :modelo, id_defeito = :id_defeito, id_causa = :id_causa, id_solucao = :id_solucao, idcriador = :idcriador WHERE id = :id");
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->bindValue(':nome_cliente', $nome_cliente, PDO::PARAM_STR);
-        $sql->bindValue(':cpf', $cpf, PDO::PARAM_STR);
+        $sql->bindValue(':os', $os, PDO::PARAM_STR);
         $sql->bindValue(':id_equipamento', $id_equipamento, PDO::PARAM_STR);
         $sql->bindValue(':marca', $marca, PDO::PARAM_STR);
         $sql->bindValue(':modelo', $modelo, PDO::PARAM_STR);

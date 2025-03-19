@@ -80,7 +80,7 @@ CREATE TABLE `equipamento` (
 CREATE TABLE `paciente` (
   `id` int(100) NOT NULL,
   `nome_cliente` varchar(100) NOT NULL,
-  `cpf` varchar(100) NOT NULL,
+  `os` varchar(100) NOT NULL,
   `id_equipamento` int(100) NOT NULL,
   `marca` varchar(100) NOT NULL,
   `modelo` varchar(100) NOT NULL,

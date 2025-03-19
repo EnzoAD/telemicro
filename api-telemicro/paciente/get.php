@@ -27,7 +27,7 @@ if ($method === 'GET') {
                                LEFT JOIN users u ON p.idcriador = u.id
                                WHERE p.id = :valorExact 
                                   OR p.nome_cliente LIKE :likeValor 
-                                  OR p.cpf LIKE :likeValor 
+                                  OR p.os LIKE :likeValor 
                                   OR e.nome LIKE :likeValor 
                                   OR p.marca LIKE :likeValor 
                                   OR p.modelo LIKE :likeValor 
@@ -52,7 +52,7 @@ if ($method === 'GET') {
                 $array['result'][] = [
                     'id' => $item['id'],
                     'nome_cliente' => $item['nome_cliente'],
-                    'cpf' => $item['cpf'],
+                    'os' => $item['os'],
                     'id_equipamento' => $item['id_equipamento'],
                     'nome_equipamento' => $item['nome_equipamento'],
                     'marca' => $item['marca'],

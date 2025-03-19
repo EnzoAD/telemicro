@@ -23,7 +23,7 @@ if ($method === 'get') { // Apenas requisições GET
             $array['result'][] = [
                 'id' => $item['id'],
                 'nome_cliente' => $item['nome_cliente'],
-                'cpf' => $item['cpf'],
+                'os' => $item['os'],
                 'id_equipamento' => $item['id_equipamento'],
                 'marca' => $item['marca'],
                 'modelo' => $item['modelo'],

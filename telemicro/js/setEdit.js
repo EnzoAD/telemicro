@@ -4,7 +4,7 @@ async function editSalvar() {
     const userData = userDataString ? JSON.parse(userDataString) : null;
 
     let cliente = document.querySelector('.cliente').value;
-    let cpf = document.querySelector('.cpf').value;
+    let os = document.querySelector('.os').value;
     const id_equipamento = document.querySelector('.equipamento').value;
     let marca = document.querySelector('.marca').value;
     let modelo = document.querySelector('.modelo').value;
@@ -14,7 +14,7 @@ async function editSalvar() {
     let idcriador = userData?.id;
     let id_paciente = document.querySelector('.id').innerText; // Supondo que haja um campo para o ID
 
-    if (!cliente || !cpf || !id_equipamento || !marca || !modelo || !id_defeito || !idcriador || !id_paciente) {
+    if (!cliente || !os || !id_equipamento || !marca || !modelo || !id_defeito || !idcriador || !id_paciente) {
         alert('Por favor, não envie campos obrigatórios vazios.');
         return;
     }
@@ -29,7 +29,7 @@ async function editSalvar() {
             body: JSON.stringify({
                 id: id_paciente,
                 nome_cliente: cliente,
-                cpf: cpf,
+                os: os,
                 id_equipamento: id_equipamento,
                 marca: marca,
                 modelo: modelo,
@@ -219,7 +219,7 @@ async function setDadosIniciais() {
         console.log(data);
         if (data) {
             document.querySelector('.cliente').value = data.result[0].nome_cliente;
-            document.querySelector('.cpf').value = data.result[0].cpf;
+            document.querySelector('.os').value = data.result[0].os;
             document.querySelector('.equipamento').value = data.result[0].id_equipamento;
             document.querySelector('.marca').value = data.result[0].marca;
             document.querySelector('.modelo').value = data.result[0].modelo;

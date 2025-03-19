@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             for (const itemr of datar.result) {
                 
 
-                document.querySelector(".result").innerText +="Id: " + itemr.id + "\n\n" + "Cliente: " + itemr.nome_cliente + "\n\n" + "CPF: " + itemr.cpf + 
+                document.querySelector(".result").innerText +="Id: " + itemr.id + "\n\n" + "Cliente: " + itemr.nome_cliente + "\n\n" + "OS: " + itemr.os + 
                 "\n\n" + "Equipamento: " + itemr.nome_equipamento + "\n\n" + "Marca: " + itemr.marca + "\n\n" + "Modelo: " + itemr.modelo +
                 "\n\n" + "Data e Hora: " + converterData(itemr.data_entrada) + "\n\n"+ "Defeito: " + itemr.nome_defeito + "\n\n";
                 if(itemr.id_causa != -1 && itemr.id_solucao != -1){

@@ -6,7 +6,7 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
         
 
     let cliente = document.querySelector('.cliente').value;
-    let cpf = document.querySelector('.cpf').value;
+    let os = document.querySelector('.os').value;
     const id_equipamento = document.querySelector('.equipamento').value;
     let marca = document.querySelector('.marca').value;
     let modelo = document.querySelector('.modelo').value;
@@ -18,7 +18,7 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
 
 
 
-    if(!cliente || !cpf || !id_equipamento || !marca || !modelo || !id_defeito || !idcriador){
+    if(!cliente || !os || !id_equipamento || !marca || !modelo || !id_defeito || !idcriador){
       alert('Por favor, não envie campos com priodade em vazio.');
       return;
     }
@@ -41,7 +41,7 @@ document.querySelector('.accept').addEventListener('click', async (e) => {
         },
         body: JSON.stringify({
             nome_cliente: cliente,
-            cpf: cpf,
+            os: os,
             id_equipamento: id_equipamento,
             marca: marca,
             modelo: modelo,
