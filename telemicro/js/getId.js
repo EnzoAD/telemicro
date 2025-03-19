@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                 if(cont==0){
                     newId = itemr.id;
                     cont++;
-                }else if(newId < itemr.id){
+                }else if(Number(newId) < Number(itemr.id)){
                     newId = itemr.id;
                 }
             }

@@ -57,7 +57,37 @@ async function editSalvar() {
     }
 }
 
+async function setEquipamento(){
+    try {
+        let res2 = await fetch('http://'+ window.location.hostname + `/telemicro/api-telemicro/equipamento/getAll.php`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        });
 
+        const datar2 = await res2.json();
+        if (datar2.result) {
+            let select2 = document.querySelector(".equipamento");
+            let opcoes2 = [];
+
+            for (const itemr2 of datar2.result) {
+                
+
+                opcoes2.push({ valor: itemr2.id, texto: itemr2.nome });
+                
+
+                
+            }
+            opcoes2.forEach(opcao2 => {
+                let option2 = document.createElement("option");
+                option2.value = opcao2.valor;
+                option2.textContent = opcao2.texto;
+                select2.appendChild(option2);
+            });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 async function setDefeito(){
     document.querySelector(".defeito").innerHTML = "";
 
@@ -220,6 +250,7 @@ async function setDadosIniciais() {
         if (data) {
             document.querySelector('.cliente').value = data.result[0].nome_cliente;
             document.querySelector('.os').value = data.result[0].os;
+            await setEquipamento();
             document.querySelector('.equipamento').value = data.result[0].id_equipamento;
             document.querySelector('.marca').value = data.result[0].marca;
             document.querySelector('.modelo').value = data.result[0].modelo;
@@ -235,4 +266,4 @@ async function setDadosIniciais() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', setTimeout(setDadosIniciais, 200));
+document.addEventListener('DOMContentLoaded', setDadosIniciais);
