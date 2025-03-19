@@ -207,7 +207,7 @@ async function setDadosIniciais() {
     if (!id_paciente) return;
 
     try {
-        let res = await fetch('http://'+ window.location.hostname + `/telemicro/api-telemicro/paciente/get.php?valor=`+ id_paciente , {
+        let res = await fetch('http://'+ window.location.hostname + `/telemicro/api-telemicro/paciente/getId.php?valor=`+ id_paciente , {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });

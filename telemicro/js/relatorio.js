@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     document.querySelector(".result").innerText="";
 
     try {
-        let res = await fetch('http://'+ window.location.hostname + `/telemicro/api-telemicro/paciente/get.php?valor=${valor}`, {
+        let res = await fetch('http://'+ window.location.hostname + `/telemicro/api-telemicro/paciente/getId.php?valor=${valor}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
